@@ -1,0 +1,125 @@
+<!-- Task Scheduler Page -->
+<div class="tasks-page">
+
+  <!-- Progress Bar -->
+  <div class="task-progress glass">
+    <div class="progress-info">
+      <span>📊 Weekly Progress</span>
+      <strong id="progressText">5 / 8 completed</strong>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:62%"></div></div>
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="task-tabs">
+    <button class="task-tab active" onclick="filterTasks('all',this)">🔄 All</button>
+    <button class="task-tab" onclick="filterTasks('ploughing',this)">🚜 Ploughing</button>
+    <button class="task-tab" onclick="filterTasks('spraying',this)">💧 Spraying</button>
+    <button class="task-tab" onclick="filterTasks('maintenance',this)">🧹 Maintenance</button>
+  </div>
+
+  <!-- Task List -->
+  <div class="task-list" id="taskList">
+
+    <div class="task-card glass overdue" data-cat="spraying" data-id="t1">
+      <div class="task-priority priority-red"></div>
+      <div class="task-body">
+        <div class="task-top">
+          <h4>🧪 Pesticide Spraying — West Field</h4>
+          <span class="task-badge badge-spray">Spraying</span>
+        </div>
+        <div class="task-details">
+          <span class="task-due overdue-text">⏰ Overdue by 1 day</span>
+          <span class="task-weather-warn">⚠️ Rain expected tomorrow — spray today!</span>
+        </div>
+      </div>
+      <button class="task-done-btn" onclick="markDone('t1',this)" title="Mark as done">
+        <span class="checkmark">✓</span>
+      </button>
+    </div>
+
+    <div class="task-card glass" data-cat="ploughing" data-id="t2">
+      <div class="task-priority priority-amber"></div>
+      <div class="task-body">
+        <div class="task-top">
+          <h4>🚜 Ploughing — North Field</h4>
+          <span class="task-badge badge-plough">Ploughing</span>
+        </div>
+        <div class="task-details">
+          <span class="task-due">📅 Due: Tomorrow, 6:00 AM</span>
+        </div>
+      </div>
+      <button class="task-done-btn" onclick="markDone('t2',this)" title="Mark as done">
+        <span class="checkmark">✓</span>
+      </button>
+    </div>
+
+    <div class="task-card glass" data-cat="spraying" data-id="t3">
+      <div class="task-priority priority-green"></div>
+      <div class="task-body">
+        <div class="task-top">
+          <h4>💧 Fertilizer Application — East Field</h4>
+          <span class="task-badge badge-spray">Spraying</span>
+        </div>
+        <div class="task-details">
+          <span class="task-due">📅 Due: May 18, 7:00 AM</span>
+          <span class="task-weather-ok">✅ Clear weather window</span>
+        </div>
+      </div>
+      <button class="task-done-btn" onclick="markDone('t3',this)" title="Mark as done">
+        <span class="checkmark">✓</span>
+      </button>
+    </div>
+
+    <div class="task-card glass" data-cat="maintenance" data-id="t4">
+      <div class="task-priority priority-green"></div>
+      <div class="task-body">
+        <div class="task-top">
+          <h4>🧹 Equipment Cleaning</h4>
+          <span class="task-badge badge-maint">Maintenance</span>
+        </div>
+        <div class="task-details">
+          <span class="task-due">📅 Due: May 19</span>
+        </div>
+      </div>
+      <button class="task-done-btn" onclick="markDone('t4',this)" title="Mark as done">
+        <span class="checkmark">✓</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Completed Section -->
+  <div class="completed-section">
+    <button class="completed-toggle" onclick="this.parentElement.classList.toggle('open')">
+      ✅ Completed Tasks (<span id="completedCount">5</span>) <span class="toggle-arrow">▼</span>
+    </button>
+    <div class="completed-list" id="completedList">
+      <div class="task-card glass done"><div class="task-priority priority-green"></div><div class="task-body"><h4 class="done-text">🚜 Soil Testing — All Fields</h4><span class="done-date">Completed May 13</span></div><span class="done-check">✅</span></div>
+      <div class="task-card glass done"><div class="task-priority priority-green"></div><div class="task-body"><h4 class="done-text">💧 Irrigation Check</h4><span class="done-date">Completed May 12</span></div><span class="done-check">✅</span></div>
+    </div>
+  </div>
+
+  <!-- Add Task FAB -->
+  <button class="fab fab-add" id="addTaskBtn" onclick="openAddTask()">➕</button>
+
+  <!-- Add Task Modal -->
+  <div class="modal-overlay" id="addTaskModal">
+    <div class="modal-sheet glass">
+      <div class="modal-handle"></div>
+      <h3>📝 Add New Task</h3>
+      <form id="addTaskForm" onsubmit="submitTask(event)">
+        <div class="form-group"><label>Task Name</label><input type="text" id="newTaskName" placeholder="e.g., Apply fungicide" required></div>
+        <div class="form-group"><label>Category</label>
+          <select id="newTaskCat" required><option value="spraying">💧 Spraying</option><option value="ploughing">🚜 Ploughing</option><option value="maintenance">🧹 Maintenance</option></select>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Date</label><input type="date" id="newTaskDate" required></div>
+          <div class="form-group"><label>Time</label><input type="time" id="newTaskTime" value="06:00"></div>
+        </div>
+        <div class="form-group"><label>Notes</label><textarea id="newTaskNotes" rows="2" placeholder="Optional notes..."></textarea></div>
+        <button type="submit" class="btn btn-primary btn-full">Add Task</button>
+      </form>
+      <button class="btn btn-secondary btn-full" onclick="closeAddTask()" style="margin-top:8px;">Cancel</button>
+    </div>
+  </div>
+</div>

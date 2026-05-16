@@ -1,0 +1,167 @@
+<!-- Farm Health & Disease Management Page -->
+<div class="farm-health-page">
+
+  <!-- Health Overview -->
+  <div class="health-overview glass">
+    <div class="ndvi-gauge-wrap">
+      <canvas id="ndviGauge" width="180" height="110"></canvas>
+      <div class="ndvi-value" id="ndviValue">78%</div>
+      <div class="ndvi-label">Farm Health Index</div>
+    </div>
+    <div class="health-summary">
+      <h2 id="healthTitle">Good Condition 🌿</h2>
+      <p id="healthDesc">Your crops are performing well. Minor issues detected in the West field.</p>
+      <div class="health-meta">
+        <span>📡 Last scan: <strong id="lastScan">Today, 9:00 AM</strong></span>
+      </div>
+      <button class="btn btn-primary" onclick="Router.go('/detect')">📷 Scan Now</button>
+    </div>
+  </div>
+
+  <!-- Disease Trend Chart -->
+  <div class="section-card glass">
+    <div class="section-header">
+      <h3>📈 Disease Detection Trends</h3>
+      <div class="chart-toggle">
+        <button class="toggle-btn active" data-period="weekly" onclick="switchTrend('weekly',this)">Weekly</button>
+        <button class="toggle-btn" data-period="monthly" onclick="switchTrend('monthly',this)">Monthly</button>
+      </div>
+    </div>
+    <div class="chart-container">
+      <canvas id="diseaseTrendChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Detected Diseases -->
+  <div class="section-card glass">
+    <h3>🦠 All Detected Diseases</h3>
+    <p class="section-subtitle">Ranked by severity — tap for treatment details</p>
+    <div class="disease-list" id="diseaseList">
+
+      <!-- Critical -->
+      <div class="disease-card severity-critical" data-id="1">
+        <div class="disease-card-header" onclick="toggleDisease(this)">
+          <div class="disease-info">
+            <span class="severity-badge critical">CRITICAL</span>
+            <h4>Late Blight</h4>
+            <span class="disease-crop">🍅 Tomato — West Field</span>
+          </div>
+          <div class="disease-meta">
+            <span class="disease-date">Detected: May 12</span>
+            <span class="expand-icon">▼</span>
+          </div>
+        </div>
+        <div class="disease-detail">
+          <div class="treatment-tabs">
+            <button class="tab active" onclick="showTab(this,'chem1')">🧪 Chemical</button>
+            <button class="tab" onclick="showTab(this,'org1')">🌿 Organic</button>
+            <button class="tab" onclick="showTab(this,'cult1')">🔄 Cultural</button>
+          </div>
+          <div class="tab-content active" id="chem1">
+            <ul>
+              <li><strong>Mancozeb 75% WP</strong> — 2.5g/L, spray every 7 days</li>
+              <li><strong>Metalaxyl + Mancozeb</strong> — 2g/L as preventive</li>
+              <li><strong>Chlorothalonil</strong> — 2g/L foliar spray</li>
+            </ul>
+          </div>
+          <div class="tab-content" id="org1">
+            <ul>
+              <li><strong>Copper Hydroxide</strong> — Organic-approved, 3g/L</li>
+              <li><strong>Neem Oil</strong> — 5ml/L as preventive spray</li>
+              <li><strong>Trichoderma viride</strong> — Soil application, 5g/L</li>
+            </ul>
+          </div>
+          <div class="tab-content" id="cult1">
+            <ul>
+              <li>Remove and destroy all infected plant parts</li>
+              <li>Improve air circulation — increase spacing</li>
+              <li>Avoid overhead irrigation; use drip</li>
+              <li>Rotate with non-solanaceous crops for 2 years</li>
+            </ul>
+          </div>
+          <button class="btn btn-sm btn-resolve" onclick="resolveDisease(1)">✅ Mark as Resolved</button>
+        </div>
+      </div>
+
+      <!-- Moderate -->
+      <div class="disease-card severity-moderate" data-id="2">
+        <div class="disease-card-header" onclick="toggleDisease(this)">
+          <div class="disease-info">
+            <span class="severity-badge moderate">MODERATE</span>
+            <h4>Powdery Mildew</h4>
+            <span class="disease-crop">🍇 Grapes — North Field</span>
+          </div>
+          <div class="disease-meta">
+            <span class="disease-date">Detected: May 10</span>
+            <span class="expand-icon">▼</span>
+          </div>
+        </div>
+        <div class="disease-detail">
+          <div class="treatment-tabs">
+            <button class="tab active" onclick="showTab(this,'chem2')">🧪 Chemical</button>
+            <button class="tab" onclick="showTab(this,'org2')">🌿 Organic</button>
+            <button class="tab" onclick="showTab(this,'cult2')">🔄 Cultural</button>
+          </div>
+          <div class="tab-content active" id="chem2">
+            <ul>
+              <li><strong>Sulphur 80% WP</strong> — 2g/L foliar spray</li>
+              <li><strong>Hexaconazole 5% EC</strong> — 1ml/L</li>
+            </ul>
+          </div>
+          <div class="tab-content" id="org2">
+            <ul>
+              <li><strong>Neem Oil</strong> — 3-5ml/L spray</li>
+              <li><strong>Baking Soda Solution</strong> — 5g/L + soap</li>
+            </ul>
+          </div>
+          <div class="tab-content" id="cult2">
+            <ul>
+              <li>Prune dense canopy for better air flow</li>
+              <li>Avoid excessive nitrogen fertilization</li>
+              <li>Water at base, not on foliage</li>
+            </ul>
+          </div>
+          <button class="btn btn-sm btn-resolve" onclick="resolveDisease(2)">✅ Mark as Resolved</button>
+        </div>
+      </div>
+
+      <!-- Mild -->
+      <div class="disease-card severity-mild" data-id="3">
+        <div class="disease-card-header" onclick="toggleDisease(this)">
+          <div class="disease-info">
+            <span class="severity-badge mild">MILD</span>
+            <h4>Leaf Spot</h4>
+            <span class="disease-crop">🌽 Corn — East Field</span>
+          </div>
+          <div class="disease-meta">
+            <span class="disease-date">Detected: May 14</span>
+            <span class="expand-icon">▼</span>
+          </div>
+        </div>
+        <div class="disease-detail">
+          <div class="treatment-tabs">
+            <button class="tab active" onclick="showTab(this,'chem3')">🧪 Chemical</button>
+            <button class="tab" onclick="showTab(this,'org3')">🌿 Organic</button>
+            <button class="tab" onclick="showTab(this,'cult3')">🔄 Cultural</button>
+          </div>
+          <div class="tab-content active" id="chem3">
+            <ul>
+              <li><strong>Mancozeb</strong> — 2.5g/L preventive spray</li>
+              <li><strong>Propiconazole</strong> — 1ml/L curative</li>
+            </ul>
+          </div>
+          <div class="tab-content" id="org3">
+            <ul><li><strong>Neem Oil</strong> — 5ml/L weekly spray</li></ul>
+          </div>
+          <div class="tab-content" id="cult3">
+            <ul>
+              <li>Remove affected leaves and dispose away from field</li>
+              <li>Ensure proper plant spacing</li>
+            </ul>
+          </div>
+          <button class="btn btn-sm btn-resolve" onclick="resolveDisease(3)">✅ Mark as Resolved</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<!-- Login / Onboarding Page -->
+<div class="auth-page">
+  <div class="auth-container glass">
+    <div class="auth-logo">
+      <span class="logo-icon">🌾</span>
+      <h1>Farm<span class="text-accent">Guard</span></h1>
+      <p class="auth-subtitle">Smart Farming Dashboard</p>
+    </div>
+
+    <!-- Step 1: Phone -->
+    <div id="step1" class="auth-step">
+      <h2>Welcome, Farmer! 👋</h2>
+      <p class="step-desc">Enter your phone number to get started</p>
+      <form id="phoneForm">
+        <div class="phone-input-group">
+          <span class="country-code">+91</span>
+          <input type="tel" id="phoneInput" placeholder="Enter 10-digit number" maxlength="10" pattern="[0-9]{10}" required autofocus>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Send OTP →</button>
+      </form>
+      <div class="auth-alt">
+        <button class="btn-biometric" onclick="showToast('Biometric login — coming soon!','info')">
+          <span>🔐</span> Use Fingerprint / FaceID
+        </button>
+        <button class="btn-whatsapp" onclick="showToast('WhatsApp OTP — coming soon!','info')">
+          <span>💬</span> OTP via WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: OTP -->
+    <div id="step2" class="auth-step hidden">
+      <h2>Verify OTP 🔑</h2>
+      <p class="step-desc">Enter the 6-digit code sent to your phone</p>
+      <form id="otpForm">
+        <div class="otp-group">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Verify →</button>
+      </form>
+      <div class="resend-row">
+        <button id="resendBtn" class="btn-link" disabled>Resend OTP</button>
+        <span id="otpTimer" class="timer">2:00</span>
+      </div>
+    </div>
+
+    <!-- Step 3: Farm Setup -->
+    <div id="step3" class="auth-step hidden">
+      <h2>Setup Your Farm 🚜</h2>
+      <p class="step-desc">Tell us about your farm for personalized insights</p>
+      <form id="farmSetup">
+        <div class="form-group">
+          <label for="farmName">Farm Name</label>
+          <input type="text" id="farmName" placeholder="e.g., Green Valley Farm" required>
+        </div>
+        <div class="form-group">
+          <label for="cropType">Primary Crop</label>
+          <select id="cropType" required>
+            <option value="">Select crop...</option>
+            <option value="rice">🌾 Rice</option>
+            <option value="wheat">🌿 Wheat</option>
+            <option value="cotton">☁️ Cotton</option>
+            <option value="sugarcane">🎋 Sugarcane</option>
+            <option value="tomato">🍅 Tomato</option>
+            <option value="potato">🥔 Potato</option>
+            <option value="corn">🌽 Corn / Maize</option>
+            <option value="soybean">🫘 Soybean</option>
+            <option value="grape">🍇 Grapes</option>
+            <option value="apple">🍎 Apple</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="farmLat">Latitude</label>
+            <input type="number" id="farmLat" step="0.0001" placeholder="Auto-detect">
+          </div>
+          <div class="form-group">
+            <label for="farmLon">Longitude</label>
+            <input type="number" id="farmLon" step="0.0001" placeholder="Auto-detect">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Start Farming →</button>
+      </form>
+    </div>
+  </div>
+</div>

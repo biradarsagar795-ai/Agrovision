@@ -1,0 +1,116 @@
+<!-- Dashboard Home Page -->
+<div class="dashboard-page">
+
+  <!-- Grade Banner -->
+  <div id="gradeBanner" class="grade-banner grade-a">
+    <div class="grade-letter-wrap">
+      <span class="grade-letter" id="gradeLetter">A</span>
+    </div>
+    <div class="grade-info">
+      <h2 id="gradeTitle">Everything is Optimal ✅</h2>
+      <p id="gradeDesc">Your farm is in excellent condition. No issues detected.</p>
+    </div>
+  </div>
+
+  <!-- Quick Alerts -->
+  <div id="alertsBar" class="alerts-bar"></div>
+
+  <!-- Widget Grid -->
+  <div class="widget-grid">
+
+    <!-- Weather Widget -->
+    <div class="widget-card glass" onclick="Router.go('/weather')">
+      <div class="widget-header">
+        <span class="widget-icon">🌤️</span>
+        <span class="widget-label">Weather</span>
+      </div>
+      <div class="widget-body">
+        <div class="widget-big" id="wTemp">28°C</div>
+        <div class="widget-sub" id="wHumidity">Humidity: 65%</div>
+        <div class="widget-sub" id="wRain">No rain expected</div>
+      </div>
+    </div>
+
+    <!-- Farm Health Widget -->
+    <div class="widget-card glass" onclick="Router.go('/farm-health')">
+      <div class="widget-header">
+        <span class="widget-icon">🌱</span>
+        <span class="widget-label">Farm Health</span>
+      </div>
+      <div class="widget-body">
+        <div class="health-ring-mini">
+          <canvas id="healthMiniCanvas" width="60" height="60"></canvas>
+          <span class="health-pct" id="healthPct">78%</span>
+        </div>
+        <div class="widget-sub" id="healthStatus">Good Condition</div>
+      </div>
+    </div>
+
+    <!-- Tasks Widget -->
+    <div class="widget-card glass" onclick="Router.go('/tasks')">
+      <div class="widget-header">
+        <span class="widget-icon">📋</span>
+        <span class="widget-label">Tasks</span>
+      </div>
+      <div class="widget-body">
+        <div class="widget-big" id="taskCount">3</div>
+        <div class="widget-sub">Pending tasks</div>
+        <div class="widget-sub" id="nextTask">Next: Spraying at 6 AM</div>
+      </div>
+    </div>
+
+    <!-- Disease Widget -->
+    <div class="widget-card glass" onclick="Router.go('/farm-health')">
+      <div class="widget-header">
+        <span class="widget-icon">🔬</span>
+        <span class="widget-label">Diseases</span>
+      </div>
+      <div class="widget-body">
+        <div class="widget-big" id="diseaseCount">1</div>
+        <div class="widget-sub">Active alerts</div>
+        <div class="widget-sub disease-alert" id="latestDisease">Powdery Mildew — Mild</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Activity -->
+  <div class="section-card glass">
+    <h3>📊 Recent Activity</h3>
+    <div class="activity-list" id="activityList">
+      <div class="activity-item">
+        <span class="activity-dot dot-green"></span>
+        <div class="activity-content">
+          <span class="activity-text">Fertilizer applied to East Field</span>
+          <span class="activity-time">2 hours ago</span>
+        </div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-dot dot-amber"></span>
+        <div class="activity-content">
+          <span class="activity-text">Powdery Mildew detected on Tomato</span>
+          <span class="activity-time">Yesterday</span>
+        </div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-dot dot-green"></span>
+        <div class="activity-content">
+          <span class="activity-text">Ploughing completed — North Field</span>
+          <span class="activity-time">2 days ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions">
+    <button class="quick-btn glass" onclick="Router.go('/detect')">
+      <span>📷</span><span>Scan Leaf</span>
+    </button>
+    <button class="quick-btn glass" onclick="Router.go('/tasks')">
+      <span>➕</span><span>Add Task</span>
+    </button>
+    <button class="quick-btn glass" onclick="document.getElementById('chatbotFab').click()">
+      <span>🤖</span><span>Ask AI</span>
+    </button>
+  </div>
+</div>

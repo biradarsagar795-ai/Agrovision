@@ -1,0 +1,66 @@
+<!-- Disease Detection Page (preserved from original CropGuard) -->
+<div class="detect-page">
+  <div class="detect-header">
+    <h2>📷 Scan & Detect Disease</h2>
+    <p>Upload or capture a leaf image for instant AI-powered disease diagnosis</p>
+  </div>
+
+  <!-- Upload Zone -->
+  <div class="upload-zone glass" id="detectUploadZone">
+    <span class="icon">📤</span>
+    <h3>Drag & drop your leaf image here</h3>
+    <p>or <span class="browse-link">browse files</span></p>
+    <p style="margin-top:8px;font-size:0.8rem;color:var(--text-muted)">JPG, PNG, WebP — Max 10 MB</p>
+    <input type="file" id="detectFileInput" accept="image/jpeg,image/png,image/webp">
+  </div>
+  <div style="text-align:center;margin:12px 0">
+    <button class="btn btn-secondary" id="detectWebcamBtn">📷 Use Webcam</button>
+  </div>
+
+  <!-- Preview -->
+  <div class="detect-preview" id="detectPreview" style="display:none">
+    <div class="preview-card glass">
+      <img id="detectPreviewImg" src="" alt="Preview">
+      <div class="preview-info">
+        <div class="file-name" id="detectFileName">—</div>
+        <div class="file-size" id="detectFileSize">—</div>
+        <div class="preview-actions">
+          <button class="btn btn-primary" id="detectAnalyzeBtn">🔬 Analyze Leaf</button>
+          <button class="btn btn-secondary" id="detectClearBtn">✕ Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div class="detect-loading" id="detectLoading" style="display:none">
+    <div class="loader-container glass"><div class="spinner"></div><p>Analyzing your leaf image…</p></div>
+  </div>
+
+  <!-- Results -->
+  <div class="detect-results" id="detectResults" style="display:none">
+    <div class="result-header glass">
+      <img id="detectResultImg" src="" alt="Analyzed leaf">
+      <div class="result-meta">
+        <div class="disease-name" id="detectDiseaseName">—</div>
+        <div class="plant-name" id="detectPlantName">—</div>
+        <span class="status-badge" id="detectStatusBadge">—</span>
+      </div>
+    </div>
+    <div class="confidence-section glass">
+      <div class="confidence-label"><span>Confidence Score</span><span class="value" id="detectConfValue">0%</span></div>
+      <div class="confidence-bar-track"><div class="confidence-bar-fill" id="detectConfBar"></div></div>
+    </div>
+    <div class="treatment-section glass" id="detectTreatment">
+      <h3>📋 Diagnosis & Treatment</h3>
+      <p class="description" id="detectDescription">—</p>
+      <div id="detectSymptomsBox"><p class="sub-heading">⚠️ Symptoms</p><ul class="symptoms-list" id="detectSymptoms"></ul></div>
+      <p class="sub-heading">💊 Treatment</p>
+      <ul class="treatment-list" id="detectTreatmentList"></ul>
+    </div>
+    <div class="top-predictions glass"><h3>📊 Top Predictions</h3><div id="detectTopPreds"></div></div>
+    <div style="text-align:center;margin-top:12px">
+      <button class="btn btn-primary" id="detectNewBtn">🔄 Analyze Another</button>
+    </div>
+  </div>
+</div>

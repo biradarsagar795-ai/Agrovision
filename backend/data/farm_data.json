@@ -1,0 +1,7 @@
+{
+  "activities": [
+    { "text": "Fertilizer applied to East Field", "time": "2 hours ago", "color": "green" },
+    { "text": "Powdery Mildew detected on Tomato", "time": "Yesterday", "color": "amber" },
+    { "text": "Ploughing completed - North Field", "time": "2 days ago", "color": "green" }
+  ]
+}

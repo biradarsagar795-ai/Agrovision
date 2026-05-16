@@ -1,0 +1,35 @@
+{
+  "8088228721": {
+    "phone": "8088228721",
+    "token": "demo_token_9470cb5207cd4f1b9d5a13e9924253b4",
+    "setup_complete": true,
+    "farm_name": "sagar",
+    "crop_type": "wheat",
+    "lat": 0.0,
+    "lon": 0.0
+  },
+  "8923564714": {
+    "phone": "8923564714",
+    "token": "demo_token_a5c51ad5b6c44fbd92a05b4a878c5db3",
+    "setup_complete": true,
+    "farm_name": "sagar",
+    "crop_type": "sugarcane",
+    "lat": 12.9029,
+    "lon": 77.5206
+  },
+  "8545181508": {
+    "phone": "8545181508",
+    "token": "demo_token_66b200b719884c09874bc36003ce1197",
+    "setup_complete": false
+  },
+  "5689895623": {
+    "phone": "5689895623",
+    "token": "demo_token_837053a1519c478dad0d2243e198dbb5",
+    "setup_complete": false
+  },
+  "2356894714": {
+    "phone": "2356894714",
+    "token": "demo_token_d0d2cf6786dd4a9b8397626a5ddec87b",
+    "setup_complete": false
+  }
+}

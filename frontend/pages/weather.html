@@ -1,0 +1,60 @@
+<!-- Weather Page -->
+<div class="weather-page">
+  <!-- Current Weather Hero -->
+  <div class="weather-hero glass">
+    <div class="weather-hero-left">
+      <div class="weather-icon-big" id="weatherIconBig">☀️</div>
+      <div class="weather-temp-big" id="tempBig">28°C</div>
+      <div class="weather-desc" id="weatherDesc">Clear Sky</div>
+      <div class="weather-location" id="weatherLoc">📍 Loading location...</div>
+    </div>
+    <div class="weather-hero-right">
+      <div class="weather-stat"><span>💧</span><span>Humidity</span><strong id="humidity">65%</strong></div>
+      <div class="weather-stat"><span>💨</span><span>Wind</span><strong id="windSpeed">12 km/h</strong></div>
+      <div class="weather-stat"><span>🌡️</span><span>Feels Like</span><strong id="feelsLike">30°C</strong></div>
+      <div class="weather-stat"><span>☀️</span><span>UV Index</span><strong id="uvIndex">6</strong></div>
+    </div>
+  </div>
+
+  <!-- Spray Window -->
+  <div class="spray-banner" id="sprayBanner">
+    <span class="spray-icon">🚿</span>
+    <div class="spray-info">
+      <strong id="sprayStatus">Safe to Spray ✅</strong>
+      <span id="sprayDetail">Wind < 15 km/h, No rain for 6 hours</span>
+    </div>
+  </div>
+
+  <!-- 7-Day Forecast -->
+  <div class="section-card glass">
+    <h3>📅 7-Day Forecast</h3>
+    <div class="forecast-strip" id="forecastStrip"></div>
+  </div>
+
+  <!-- Temperature Chart -->
+  <div class="section-card glass">
+    <h3>🌡️ Temperature Trend (24h)</h3>
+    <div class="chart-container">
+      <canvas id="tempChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Precipitation Chart -->
+  <div class="section-card glass">
+    <h3>🌧️ Precipitation Forecast</h3>
+    <div class="chart-container">
+      <canvas id="rainChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Spray Windows Table -->
+  <div class="section-card glass">
+    <h3>🚿 Optimal Spray Windows (Next 3 Days)</h3>
+    <div class="spray-table-wrap">
+      <table class="spray-table" id="sprayTable">
+        <thead><tr><th>Day</th><th>Window</th><th>Wind</th><th>Rain Risk</th><th>Status</th></tr></thead>
+        <tbody id="sprayTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
