@@ -2,6 +2,7 @@
  * FarmGuard — Shared Utilities
  */
 const API = window.location.origin + '/api';
+const API_BASE = window.location.origin;
 
 function showToast(msg, type = 'success', dur = 3500) {
   const c = document.getElementById('toastContainer');
