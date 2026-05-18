@@ -1,4 +1,4 @@
-# 🌿 CropGuard AI — Plant Disease Detection
+# 🌿 AgroVision— Plant Disease Detection
 
 AI-powered crop disease detection from leaf images. Upload a photo, get instant diagnosis with confidence scores and treatment recommendations.
 
