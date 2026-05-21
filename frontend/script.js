@@ -59,7 +59,7 @@ let webcamStream = null;
 function initTheme() {
   const saved = localStorage.getItem("cropguard-theme") || "dark";
   document.documentElement.setAttribute("data-theme", saved);
-  themeToggle.textContent = saved === "dark" ? "🌙" : "☀️";
+  themeToggle.textContent = saved === "dark" ? "☾" : "☼";
 }
 
 themeToggle.addEventListener("click", () => {
@@ -67,7 +67,7 @@ themeToggle.addEventListener("click", () => {
   const next = current === "dark" ? "light" : "dark";
   document.documentElement.setAttribute("data-theme", next);
   localStorage.setItem("cropguard-theme", next);
-  themeToggle.textContent = next === "dark" ? "🌙" : "☀️";
+  themeToggle.textContent = next === "dark" ? "☾" : "☼";
 });
 
 // ═══════════════════════════════════════════════════════════════
